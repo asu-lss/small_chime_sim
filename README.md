@@ -7,6 +7,8 @@ To run this simulation, you'll first need to set up a Python virtual environment
 - It is also strongly recommended to use the `mkchimeenv` script (https://github.com/chime-experiment/mkchimeenv/tree/main) to set up your virtual environment.
 - Finally, if doing code development or testing, it is strongly recommeded to make sure that you can use MPI on your computer, because a wide class of bugs only appears when executing the code with MPI.
 
+- As of Feb. 27, 2025, you'll need to checkout the `ar/offline-telescope` branch of `ch_pipeline` for the first step to work. (I.e. go to the `ch_pipeline` directory in your virtual environment directory and do `git checkout ar/offline-telescope`.)
+
 This tutorial is likely to be infrequently updated and may break as `radiocosmology` packages or CHIME packages change with time. Please let Simon know if you encounter any issues!
 
 ## Generating telescope products
