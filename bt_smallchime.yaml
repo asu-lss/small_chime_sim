@@ -1,0 +1,56 @@
+# General config settings
+config:
+    beamtransfers:      Yes
+    kltransform:        No
+    psfisher:           No
+
+    skip_svd:           Yes
+
+    ## Directory to store output in. Change to point to your own copy of small_chime_sim.
+    output_directory:   /Users/sforeman/Dropbox/Research/CHIME/py/small_chime_sim/sim_output/products/
+
+    ## Settings if running through "drift-makeproducts queue"
+    ##  (ignored on your personal computer, but left in anyway)
+    name:               bt                      # Jobname
+    nodes:              4                       # Number of nodes to run on
+    time:               180                     # Time to run for (in minutes)
+    ompnum:             2                       # Number of OpenMP threads per MPI task
+    pernode:            24                      # Number of MPI tasks per node
+    queue:              batch                   # If set, submit to an alternative queue (e.g debug)
+    account:            rpp-chime
+    queue_sys:          slurm
+    ## Location of your virtual environment. Change to point to your own venv directory.
+    venv:               /Users/sforeman/Dropbox/Research/CHIME/py/venv_2024_10/venv/
+
+
+telescope:
+    type:
+        class:  CHIME
+        module: ch_pipeline.core.telescope
+
+    layout:             2018-12-21 00:00:00
+    correlator:         chime
+    stack_type:         redundant
+
+    # Select channel indices to compute
+    use_pathfinder_freq: Yes
+    channel_range:      [768, 772]
+
+    # Include feed auto-correlations
+    auto_correlations: True
+
+    # Parameters used to generate random noise
+    tsys:                 50.0
+    ndays:                733
+
+    # If >1, increase nside used for BTM calculations by 2**accuracy_boost
+    accuracy_boost: 1.0
+
+    # Cache size for BTM computations (consider changing if you encounter memory issues)
+    beam_cache_size: 5000
+
+    # Sub-select baselines
+    minlength_ew: 0.0
+    maxlength_ew: 30.0
+    minlength_ns: 0.0
+    maxlength_ns: 0.5
